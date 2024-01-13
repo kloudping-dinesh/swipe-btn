@@ -1,0 +1,109 @@
+.slide-button-container {
+  & * {
+    box-sizing: border-box;
+  }
+
+  &.disabled {
+    border: 3px solid #bfbfbf;
+    background: #dddddd;
+    color: #8d8d8d;
+  }
+
+  border-radius: 1.75rem;
+  background-color: #dddddd;
+  border: 3px solid #24959b;
+  min-width: 200px;
+  padding: 0.875rem;
+  position: relative;
+  overflow: hidden;
+  color: #000000;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  user-select: none;
+
+  .sbc-overlay {
+    position: absolute;
+    left: 0.4375rem;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 2rem;
+    transition: width 0.2s ease-out;
+    will-change: width;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.onswipe {
+      background: #007998;
+      left: 0;
+    }
+    .sbc-overlay-wrapper {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    .sbc-caret-wrapper {
+      position: absolute;
+      max-width: 45px;
+      width: 42px;
+      min-width: 0;
+      right: 0;
+      top: 50%;
+      height: 42px;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .caret {
+        padding: 0.5625rem;
+        width: 42px;
+        height: 42px;
+        border-radius: 100%;
+        background: linear-gradient(
+          272deg,
+          #12ad91 8.62%,
+          #0391b0 78.65%
+        );
+        &.disabled {
+          background: #bfbfbf;
+        }
+      }
+      img {
+        cursor: pointer;
+      }
+      &.onswipe {
+        background: #007998;
+        right: 0.4375rem;
+      }
+    }
+
+    .sbc-overlay-txt {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      height: 100%;
+      color: transparent;
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    &.onswipe > .sbc-overlay-wrapper > .sbc-overlay-txt {
+      color: #000000;
+    }
+  }
+}
